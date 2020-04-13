@@ -3,10 +3,11 @@ import random
 
 import aioredis
 import redis
-from quart import Quart, jsonify, request, url_for
+from quart import Quart, jsonify, url_for
 
 app = Quart(__name__)
 
+aredis = None
 sr = redis.StrictRedis(host="localhost", port=6379)
 sr.execute_command("FLUSHDB")
 
